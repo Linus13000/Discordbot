@@ -1,0 +1,5 @@
+**Hilfe zum testbot12**
+*.help* - Zeigt diese Hilfe an
+*.repeat* - Wiederholt das nach dem Befehl gesagte
+*.autorepeat on / off* - Wiederholt alle Textnachrichten außer Befehle
+*.randint x y* - Zufallszahl von x bis y 
