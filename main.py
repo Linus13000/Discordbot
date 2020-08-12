@@ -4,6 +4,7 @@ import random
 
 #Umfragen hinzufügen
 #Neuer Mensch auf Server -> Infomessage
+#Randint wenn nur eine Zahl angegeben wurde
 
 client = discord.Client()
 
@@ -82,6 +83,8 @@ async def status_task():
         await client.change_presence(activity=discord.Game('YouPorn'), status=discord.Status.online)
         await asyncio.sleep(3)
         await client.change_presence(activity=discord.Game('PornHub'), status=discord.Status.online)
+        await asyncio.sleep(3)
+        await client.change_presence(activity=discord.Game('Hamster Porn'), status=discord.Status.online)
         await asyncio.sleep(3)
 
 def token():
