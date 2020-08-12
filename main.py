@@ -46,6 +46,17 @@ async def on_message(message):
     else:
         return
 
+def autorepeat(message):
+    global autorepeat_status
+    if(message.content == '.autorepeat on' or message.content == '.autorepeat On'):
+        autorepeat_status = True
+        return("**Autorepeat is on**")
+    elif(message.content == '.autorepeat off' or message.content == '.autorepeat Off'):
+        autorepeat_status = False
+        return("**Autorepeat is off**")
+    else:
+        return('**Dumm?**\r\n*on* oder *off* als Option für diesen Befehl**!**')
+
 async def status_task():
     while True:
         global pornoseiten
