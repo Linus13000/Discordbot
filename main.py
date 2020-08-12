@@ -5,10 +5,12 @@ import random
 #Umfragen hinzufügen
 #Neuer Mensch auf Server -> Infomessage
 #Randint wenn nur eine Zahl angegeben wurde
+#Weitere Pornoseiten Liste mit random
 
 client = discord.Client()
 
 autorepeat_status = False
+pornoseiten = ['Pornhub', 'Youporn', 'Hamster Porn', 'xHamster', 'xnxx', 'xvideos']
 
 @client.event
 async def on_ready():
@@ -80,12 +82,13 @@ def randint(message):
 
 async def status_task():
     while True:
-        await client.change_presence(activity=discord.Game('YouPorn'), status=discord.Status.online)
+        global pornoseiten
+        await client.change_presence(activity=discord.Game(random.choice(pornoseiten)), status=discord.Status.online)
         await asyncio.sleep(3)
-        await client.change_presence(activity=discord.Game('PornHub'), status=discord.Status.online)
-        await asyncio.sleep(3)
-        await client.change_presence(activity=discord.Game('Hamster Porn'), status=discord.Status.online)
-        await asyncio.sleep(3)
+        #await client.change_presence(activity=discord.Game('PornHub'), status=discord.Status.online)
+        #await asyncio.sleep(3)
+        #await client.change_presence(activity=discord.Game('Hamster Porn'), status=discord.Status.online)
+        #await asyncio.sleep(3)
 
 def token():
     token = open('token.txt', 'r')
