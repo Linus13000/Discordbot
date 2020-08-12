@@ -14,18 +14,6 @@ def repeat(message):
         rest = " ".join(rest)
     return('{} hat "{}" geschrieben.'.format(message.author.nick ,rest))
 
-
-def autorepeat(message):
-    global autorepeat_status
-    if(message.content == '.autorepeat on' or message.content == '.autorepeat On'):
-        autorepeat_status = True
-        return("**Autorepeat is on**")
-    elif(message.content == '.autorepeat off' or message.content == '.autorepeat Off'):
-        autorepeat_status = False
-        return("**Autorepeat is off**")
-    else:
-        return('**Dumm?**\r\n*on* oder *off* als Option für diesen Befehl**!**')
-
 def randint(message): 
     rest = message.content
     rest = rest.split()
