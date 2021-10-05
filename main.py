@@ -106,10 +106,6 @@ async def stop(message):
             voice.stop()
             await message.channel.send('Stoppt...')
     except AttributeError:
-        channel.disconnect()
-        voice.disconnect()
-        channel.cleanup()
-        voice.cleanup()
 
 def autorepeat(message):
     global autorepeat_status
@@ -126,18 +122,5 @@ def autorepeat(message):
 def token():
     token = open('token.txt', 'r')
     return token.read()
-
-#Neu
-#async def playown(message):
-#    channel = message.author.voice.channel
-#    global player
-#    try:
-#        await connect(reconnect(True))
-#        play()
-#    except:
-#        pass
-#
-#async def stop():
-#    player.disconnect()
 
 client.run(token())
