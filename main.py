@@ -9,27 +9,25 @@ client = discord.Client()
 autorepeat_status = False
 pornoseiten = ['Pornhub', 'Youporn', 'Hamster Porn', 'xHamster', 'xnxx', 'xvideos']
 
-
 @client.event
 async def on_ready():
     print("Eingeloggt als User {}".format(client.user.name))
     print("Bot Ready!")
     client.loop.create_task(status_task())
 
-
 @client.event
 async def on_message(message):
-    if message.author.bot:  
+    if message.author.bot:
         return
-    if message.content.startswith('!' or 'gs.' or 'b.' or '!!'): 
-        return 
+    if message.content.startswith('!' or 'gs.' or 'b.' or '!!'):
+        return
     elif message.content.startswith('.'):
         if(message.content == '.help'):
             await message.channel.send(embed=help())
         elif message.content.startswith('.repeat'):
             await message.channel.send(embed=repeat(message))
         elif message.content.startswith('.autorepeat'):
-            await message.channel.send(embed=autorepeat(message))     
+            await message.channel.send(embed=autorepeat(message))
         elif message.content.startswith('.randint'):
             await message.channel.send(embed=randint(message))
         elif message.content.startswith('.joke'):
@@ -50,9 +48,6 @@ async def status_task():
     while True:
         await client.change_presence(activity=discord.Game(random.choice(pornoseiten)), status=discord.Status.online)
         await asyncio.sleep(3)
-def token():
-    token = open('token.txt', 'r')
-    return token.read()
 
 def autorepeat(message):
     global autorepeat_status
@@ -66,6 +61,9 @@ def autorepeat(message):
         embed=discord.Embed(title="Dumm?", description="*on* oder *off* als Option für diesen Befehl**!**", color=0x9d1092)
     return(embed)
 
+def token():
+    token = open('token.txt', 'r')
+    return token.read()
 
 #Neu
 #async def play(message):
