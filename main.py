@@ -63,7 +63,7 @@ def autorepeat(message):
 
 def token():
     token = open('token.txt', 'r')
-    print("Token:" + token.read())
+    print("Token:" + token)
     return token.read()
 
 #Neu
