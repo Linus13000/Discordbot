@@ -14,3 +14,4 @@ if [ -f "$destfile" ]
 then
     echo "$token" > "$destfile"
 fi
+echo Now you can start your bot
