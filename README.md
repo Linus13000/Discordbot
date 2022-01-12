@@ -2,4 +2,9 @@
 
 A bot just for fun
 
-To get ready for startup run build.sh
+# Usage
+```bash
+./build.sh
+python main.py
+'''
+
