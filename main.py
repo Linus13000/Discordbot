@@ -16,8 +16,8 @@ pornoseiten = ['Pornhub', 'Youporn', 'Hamster Porn', 'xHamster', 'xnxx', 'xvideo
 
 @client.event
 async def on_ready():
-    print("Eingeloggt als User {}".format(client.user.name))
-    print("Bot Ready!")
+    print("Eingeloggt as user {}".format(client.user.name))
+    print("Bot ready!")
     client.loop.create_task(status_task())
 
 @client.event
