@@ -6,5 +6,5 @@ A bot just for fun
 ```bash
 ./build.sh
 python main.py
-'''
+```
 
