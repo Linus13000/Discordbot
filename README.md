@@ -2,7 +2,7 @@
 
 A bot just for fun
 
-# Usage
+## Usage
 Setup:
 ```bash
 ./build.sh
