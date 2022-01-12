@@ -106,6 +106,7 @@ async def stop(message):
             voice.stop()
             await message.channel.send('Stoppt...')
     except AttributeError:
+        pass
 
 def autorepeat(message):
     global autorepeat_status
