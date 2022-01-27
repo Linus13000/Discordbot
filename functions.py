@@ -10,6 +10,7 @@ def help():
     embed.add_field(name=".randint x y", value="Zufallszahl von x bis y", inline=False)
     embed.add_field(name=".joke", value="Haut einen Witz raus", inline=False)
     embed.add_field(name=".play", value="Spielt den angegebenen Song von Youtube", inline=False)
+    embed.add_field(name=".stop", value="Stoppt die Musik", inline=False)
     return(embed)
 
 def repeat(message):
