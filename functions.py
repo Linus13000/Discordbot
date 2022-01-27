@@ -9,6 +9,7 @@ def help():
     embed.add_field(name=".autorepeat on / off ", value="Wiederholt alle Textnachrichten außer Befehle", inline=False)
     embed.add_field(name=".randint x y", value="Zufallszahl von x bis y", inline=False)
     embed.add_field(name=".joke", value="Haut einen Witz raus", inline=False)
+    embed.add_field(name=".play", value="Spielt den angegebenen Song von Youtube", inline=False)
     return(embed)
 
 def repeat(message):
@@ -50,7 +51,9 @@ def joke(message):
     "Was ist niedlich und hüpft qualmend über'n Acker? — Ein Kaminchen!",
     'Was sagt ein Gen, wenn es ein anderes trifft? — Halogen',
     'Was ist ein studierter Bauer? — Ein Ackerdemiker',
-    'Was ist gelb und schießt? Eine Banone!']
+    'Was ist gelb und schießt? Eine Banone!',
+    'Wie macht man einen Elektriker traurig? - Man tötet seine ganze Familie!',
+    'Du bist ein Witz']
     witz = random.choice(witze)
     embed=discord.Embed(title='Witz', description=witz, color=0x9d1092)
     return(embed)
