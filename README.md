@@ -3,6 +3,7 @@
 A bot just for fun
 
 ### Requirements:
+#### Ubuntu:
 ```bash
 ffmpeg
 python3
