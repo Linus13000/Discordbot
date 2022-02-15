@@ -1,7 +1,12 @@
 # Discordbot
 
 A bot just for fun
-
+###Requirements:
+```bash
+ffmpeg
+python3
+python-is-python3
+```
 ## Usage
 Clone repo to final destination:
 ```bash
