@@ -1,6 +1,7 @@
 # Discordbot
 
 A bot just for fun
+
 ###Requirements:
 ```bash
 ffmpeg
