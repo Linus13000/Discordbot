@@ -7,6 +7,7 @@ A bot just for fun
 ffmpeg
 python3
 python-is-python3
+python3-venv
 ```
 ## Usage
 Clone repo to final destination:
