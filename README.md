@@ -2,7 +2,7 @@
 
 A bot just for fun
 
-###Requirements:
+### Requirements:
 ```bash
 ffmpeg
 python3
