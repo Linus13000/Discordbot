@@ -36,7 +36,7 @@ def randint(message):
         embed=discord.Embed(title="Randint", description='Zufallszahl von 1 bis {}:'.format(int(rest[1])), color=0x9d1092)
         embed.add_field(name="Zahl:", value=random.randint(1, int(rest[1])), inline=False)
     else:
-        embed=discord.Embed(title="Dumm?", description="Es müssen 2 Zahlen aus dem Zahlenbereich der ganzen Zahlen angegeben werden**!**", color=0x9d1092)
+        embed=discord.Embed(title="Dumm?", description="Es müssen eine oder 2 Zahlen aus dem Zahlenbereich der ganzen Zahlen angegeben werden**!**", color=0x9d1092)
     return(embed)
 
 def joke(message):
