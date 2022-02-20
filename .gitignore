@@ -1,2 +1,4 @@
 
-__pycache__/functions.cpython-39.pyc
+__pycache__
+venv
+token.txt

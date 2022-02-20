@@ -18,10 +18,10 @@ def repeat(message):
         rest.remove('.repeat')
         rest = " ".join(rest)
 
-    embed=discord.Embed(title='Repeat', description='{} hat "{}" geschrieben.'.format(message.author.nick ,rest), color=0x9d1092)        
+    embed=discord.Embed(title='Repeat', description='{} hat "{}" geschrieben.'.format(message.author.nick ,rest), color=0x9d1092)
     return(embed)
 
-def randint(message): 
+def randint(message):
     rest = message.content
     rest = rest.split()
     if(len(rest) == 3 and rest[1].isnumeric() and rest[2].isnumeric()):
@@ -32,9 +32,9 @@ def randint(message):
     return(embed)
 
 def joke(message):
-    witze = ['Geht ein Pole an die Kasse.', 
-    '„Wie sehen Sie lesbische Paare?“ – „Full HD.“', 
-    'Beim Sex ist es ja oft so wie mit dem Lieblingsgürtel. Ein Loch weiter vorne war alles noch entspannter.', 
+    witze = ['Geht ein Pole an die Kasse.',
+    '„Wie sehen Sie lesbische Paare?“ – „Full HD.“',
+    'Beim Sex ist es ja oft so wie mit dem Lieblingsgürtel. Ein Loch weiter vorne war alles noch entspannter.',
     'Hab neulich ein Kondom der deutschen Bahn genommen. Ich kam später.',
     'Wieso kann eine Frau beim Verkehr besser denken? Sie ist mit dem Zentralrechner verbunden.',
     'Was ist weiß und guckt durchs Schlüsselloch? — Ein Spannbettlaken',
@@ -50,7 +50,12 @@ def joke(message):
     "Was ist niedlich und hüpft qualmend über'n Acker? — Ein Kaminchen!",
     'Was sagt ein Gen, wenn es ein anderes trifft? — Halogen',
     'Was ist ein studierter Bauer? — Ein Ackerdemiker',
-    'Was ist gelb und schießt? Eine Banone!']
+    'Was ist gelb und schießt? Eine Banone!'
+    'Was ist der Unterschied zwischen einem Kindergarten und einem Ausbildungscamp für Terroristen? - Keine Ahnung - Ich fliege nur die Drohne...',
+    'Wie nennt man ein Kind aus Tschernobyl mit gebrochenen Beinen? - Knicklicht',
+    'Wie heißt ein Hund ohne Beine? - Egal, kommt eh nicht, wenn man ihn ruft',
+    'Was haben ein Baby und eine Flasche Sprudelwasser gemeinsam? - Beide werden still, wenn man sie schüttelt',
+    'Was haben GTA und das dritte Reich gemeinsam? - Hast du einen Stern, wirst du verfolgt']
     witz = random.choice(witze)
     embed=discord.Embed(title='Witz', description=witz, color=0x9d1092)
     return(embed)
