@@ -29,6 +29,9 @@ def randint(message):
     if(len(rest) == 3 and rest[1].isnumeric() and rest[2].isnumeric()):
         embed=discord.Embed(title="Randint", description='Zufallszahl von {} bis {}:'.format(int(rest[1]), int(rest[2])), color=0x9d1092)
         embed.add_field(name="Zahl:", value=random.randint(int(rest[1]), int(rest[2])), inline=False)
+    elif(len(rest) < 3 and rest[1].isnumeric()):
+        embed=discord.Embed(title="Randint", description='Zufallszahl von 0 bis {}:'.format(int(rest[1])), color=0x9d1092)
+        embed.add_field(name="Zahl:", value=random.randint(0, int(rest[1])), inline=False)
     else:
         embed=discord.Embed(title="Dumm?", description="Es müssen 2 Zahlen aus dem Zahlenbereich der ganzen Zahlen angegeben werden**!**", color=0x9d1092)
     return(embed)
