@@ -7,12 +7,14 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from discord import TextChannel
 from youtube_dl import YoutubeDL
+import time
 
 #Umfragen
 client = discord.Client()
 
 autorepeat_status = False
 pornoseiten = ['Pornhub', 'Youporn', 'Hamster Porn', 'xHamster', 'xnxx', 'xvideos']
+playlist = []
 
 @client.event
 async def on_ready():
@@ -59,29 +61,52 @@ async def status_task():
         await asyncio.sleep(3)
 
 async def play(message):
+    global playlist
     channel = message.author.voice.channel
     voice = get(client.voice_clients, guild=message.guild)
     YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
     FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
 
+#Bot connectet
     if voice and voice.is_connected():
         await voice.move_to(channel)
-    else:
-        voice = await channel.connect()
 
+    else:
+        try:
+            voice = await channel.connect()
+        except:
+            pass
+
+#Bot playt
     if not voice.is_playing():
         url = message.content[len(".play "):]
         with YoutubeDL(YDL_OPTIONS) as ydl:
             info = ydl.extract_info(url, download=False)
         URL = info['url']
-        voice.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
-        voice.is_playing()
-        await message.channel.send('Bot spielt: ' + url)
+
+        playlist.append(URL)
+
+        if(len(playlist) > 1):
+            while(len(playlist) > 0):
+                if not voice.is_playing():
+                    voice.play(FFmpegPCMAudio(playlist[0], **FFMPEG_OPTIONS))
+                    await message.channel.send('Bot spielt: ' + url)
+                    time.sleep(1)
+                    try:
+                        playlist.pop()
+                    except IndexError:
+                        pass
+
+            time.sleep(5)
 
 # check if the bot is already playing
     else:
-        await message.channel.send("Bot spielt bereits Musik")
-        return
+        url = message.content[len(".play "):]
+        with YoutubeDL(YDL_OPTIONS) as ydl:
+            info = ydl.extract_info(url, download=False)
+        URL = info['url']
+        await message.channel.send("Titel zur Warteschlange hinzugefügt")
+        playlist.append(URL)
 
 async def pause(message):
     voice = get(client.voice_clients, guild=message.guild)
@@ -98,12 +123,14 @@ async def resume(message):
         await message.channel.send('Bot fährt fort')
 
 async def stop(message):
+    global playlist
+    playlist = []
     voice = get(client.voice_clients, guild=message.guild)
     channel = message.author.voice.channel
-
     try:
         if voice.is_playing():
             voice.stop()
+            voice.disconect()
             await message.channel.send('Stoppt...')
     except AttributeError:
         pass
