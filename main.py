@@ -48,6 +48,8 @@ async def on_message(message):
             await pause(message)
         elif message.content.startswith('.resume'):
             await resume(message)
+        elif message.content.startswith('.skip'):
+            await skip(message)
         else:
             await message.channel.send("**Dumm?**\r\nSiehe *.help* für mehr Informationen**!**")
     elif(autorepeat_status):
@@ -122,6 +124,9 @@ async def resume(message):
     if not voice.is_playing():
         voice.resume()
         await message.channel.send('Bot fährt fort')
+
+async def skip(message):
+    print("Not implemented yet")
 
 async def stop(message):
     global playlist
